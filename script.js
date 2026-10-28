@@ -1,3 +1,76 @@
+// AroLinks Integration for Get Key
+function openAroLinks() {
+    const apiToken = "828c34db80ec53e94e7174f5f52e0b274a38ab2d";
+    const targetUrl = "https://madxrohitbihari.github.io/MADX-KEY/";
+    const apiUrl = `https://arolinks.com/api?api=${apiToken}&url=${encodeURIComponent(targetUrl)}`;
+
+    const msgDiv = document.getElementById("status-msg");
+    msgDiv.style.color = "var(--accent-gold)";
+    msgDiv.innerText = "Generating Link...";
+    showToast("Generating Access Link...");
+    
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success" && data.shortenedUrl) {
+                window.location.href = data.shortenedUrl;
+            } else {
+                msgDiv.style.color = "#ff4444";
+                msgDiv.innerText = "Error generating link!";
+                showToast("Error generating link!");
+            }
+        })
+        .catch(() => {
+            msgDiv.style.color = "#ff4444";
+            msgDiv.innerText = "Network Error!";
+            showToast("Network Error!");
+        });
+}
+
+// Open YouTube Shorts directly to avoid embedding/configuration errors
+function openVideoModal() {
+    window.open("https://youtube.com/shorts/pUzO0qK8Pf8?si=DXpOKDWrX9HFbpyp", "_blank");
+}
+
+// High Security Key Verification Logic (33 Characters + MAD prefix & APN suffix)
+function verifyUserKey() {
+    const userKey = document.getElementById("accessKeyInput").value.trim().toUpperCase();
+    const msgDiv = document.getElementById("status-msg");
+    
+    const targetLen = 33; 
+    if (userKey.length !== targetLen || !userKey.startsWith("MAD") || !userKey.endsWith("APN")) {
+        msgDiv.style.color = "#ff4444";
+        msgDiv.innerText = "⚠ Invalid key format!";
+        showToast("⚠️ Invalid key format!");
+        return;
+    }
+
+    let usedKeys = JSON.parse(localStorage.getItem("usedKeysRegistry")) || {};
+    const currentTime = new Date().getTime();
+
+    if (usedKeys[userKey]) {
+        msgDiv.style.color = "#ff4444";
+        msgDiv.innerText = "⚠️ This key has already been used! Please get a new key.";
+        showToast("⚠️ Key already used! Get a new key");
+        return;
+    }
+
+    usedKeys[userKey] = currentTime;
+    localStorage.setItem("usedKeysRegistry", JSON.stringify(usedKeys));
+
+    const keyExpiryDuration = 24 * 60 * 60 * 1000;
+    const globalExpiryTime = currentTime + keyExpiryDuration; 
+    localStorage.setItem("appAuthExpiry", globalExpiryTime);
+    
+    msgDiv.style.color = "var(--neon-green)";
+    msgDiv.innerText = "Portal Unlocked Successfully!";
+    showToast("Portal Unlocked Successfully!");
+
+    setTimeout(() => {
+        document.getElementById("authScreenWrapper").style.display = "none";
+    }, 600);
+}
+
 const activeApps = [  
     { id: 58, name: "APNA COLLEGE", tag: "Coding & tech", img: "https://i.postimg.cc/jS76CFc0/image-search-1783748117436.png", link: "https://madxrohitbihar-app.github.io/Apna-collgeg-pro/" },  
     { id: 1, name: "CAREER WILL", tag: "Competitive exams", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmYE_faasYwfAs0rQKDf4GcuoV7_Ws6ZUqWwmIpuHVSw&s", link: "https://madxrohitbihar-app.github.io/Careerwill-2pro/" },  
@@ -17,7 +90,7 @@ const activeApps = [
     { id: 100, name: "PHYSICS WALLAH", tag: "Premium batches & tests", img: "https://i.postimg.cc/ZRMVR91P/image-search-1791519463252.webp", link: "https://madxrohitbihar-app.github.io/Physics-pro/" },
     { id: 102, name: "PHYSICS PI", tag: "Conceptual courses", img: "https://i.postimg.cc/ZRMVR91P/image-search-1791519463252.webp", link: "http://pi.studyparcham.site" },
     { id: 20, name: "RG VIKRAMJEET", tag: "Maths & reasoning", img: "https://i.postimg.cc/cLqhCJVD/image-search-1791011678203.png", link: "https://madxrohitbihar-app.github.io/Rg-Vikramjeet/" },
-    { id: 4, name: "ROJGAR WITH ANKIT", tag: "Affordable exam prep", img: "https://i.postimg.cc/fTfdSHbT/image-search-1783668281136.png", link: "https://madxrohitbihar-rwa.netlify.app/" },  
+    { id: 4, name: "ROJGAR WITH ANKIT", tag: "Affordable exam prep", img: "https://i.postimg.cc/fTfdSHbT/image-search-1783668281136.png", link: "https://madxrohitbihar-app.github.io/RWA-Pro/" },  
     { id: 3, name: "SELECTION WAY", tag: "Dedicated selection classes", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRquIqVyakcgsPuAsFkSm34nPLKZ_IY2W0-Rj5sd1-T-g&s=10", link: "https://old-meadow-c959.madxrohitbihar.workers.dev/" },  
     { id: 59, name: "STUDY IQ", tag: "UPSC & Civil services", img: "https://i.postimg.cc/850xN6Wz/image-search-1788171724038.jpg", link: "https://spidyiq.vercel.app/" },  
     { id: 8, name: "TEST SERIES", tag: "Mock tests & practice", img: "https://i.postimg.cc/Bb9C4KYz/image-search-1785225815998.png", link: "https://repeatermock.com/" },  
@@ -146,6 +219,22 @@ document.addEventListener("contextmenu", (e) => {
     return false;
 });
 
+function checkAuthStatus() {
+    const expiryTime = localStorage.getItem("appAuthExpiry");
+    const currentTime = new Date().getTime();
+    const isVerified = expiryTime && currentTime < expiryTime;
+
+    if (isVerified) {
+        document.getElementById('authScreenWrapper').style.display = 'none';
+    } else {
+        document.getElementById('authScreenWrapper').style.display = 'flex';
+    }
+}
+
+window.addEventListener('pageshow', function(event) {
+    checkAuthStatus();
+});
+
 document.addEventListener("DOMContentLoaded", () => {  
     const splash = document.getElementById("splash-screen");  
       
@@ -164,6 +253,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 500);
     }
 
+    checkAuthStatus();
+
     const savedTab = sessionStorage.getItem('currentActiveTab');
     if (savedTab) {
         const targetNav = document.getElementById(`nav-${savedTab}`);
@@ -173,9 +264,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });  
 
-function closePopup() {  
+function closePopupAndShowAuth() {  
     document.getElementById('popupModal').style.display = 'none';  
     sessionStorage.setItem('popupShown', 'true'); 
+
+    checkAuthStatus();
 }  
 
 renderApps();
