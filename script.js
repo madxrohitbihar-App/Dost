@@ -100,7 +100,7 @@ const activeApps = [
     { id: 71, name: "UNACADEMY ONLINE", tag: "Live interactive classes", img: "https://i.postimg.cc/Wz6xPX4L/image-search-1785224943445.jpg", link: "https://madxrohitbihar-app.github.io/Unacdemy-pro-/" },
     { id: 17, name: "VIBRANT ACADEMY", tag: "JEE advanced coaching", img: "https://i.postimg.cc/mgx3mfCs/image-search-1785251111107.png", link: "https://learnbyakp.site/vibrant" },  
     { id: 61, name: "VIDYAKHUL", tag: "Online school boards", img: "https://i.postimg.cc/9Qr5MJ2g/image-search-1787482867101.png", link: "https://vidyakool.streamfiles.eu.org/" },
-    { id: 21, name: "VIDYAGRAM", tag: "School & board studies", img: "https://i.postimg.cc/PqbrQWnH/image-search-1791123215735.png", link: "https://studybeepro.site/vidyagram/" }
+    { id: 21, name: "VIDYAGRAM", tag: "School & board studies", img: "https://i.postimg.cc/SNG4r8cJ/image-search-1793448195795.png", link: "https://madxrohitbihar-app.github.io/Vidyagram-pro/" }
 ];  
 
 let favorites = JSON.parse(localStorage.getItem('userFavs')) || [];  
