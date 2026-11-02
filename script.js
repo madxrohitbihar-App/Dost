@@ -72,36 +72,37 @@ function verifyUserKey() {
 }
 
 const activeApps = [  
-    { id: 58, name: "APNA COLLEGE", tag: "Coding & tech", img: "https://i.postimg.cc/jS76CFc0/image-search-1783748117436.png", link: "https://madxrohitbihar-app.github.io/Apna-collgeg-pro/" },  
-    { id: 1, name: "CAREER WILL", tag: "Competitive exams", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmYE_faasYwfAs0rQKDf4GcuoV7_Ws6ZUqWwmIpuHVSw&s", link: "https://madxrohitbihar-app.github.io/Careerwill-2pro/" },  
-    { id: 70, name: "CAREERWILL 2", tag: "Advanced live batches", img: "https://i.postimg.cc/fW3pxXNF/image-search-1791302510366.png", link: "https://madxrohitbihar-app.github.io/Careerwill/" },
-    { id: 19, name: "CDS JOURNEY", tag: "Defence exam study", img: "https://i.postimg.cc/tRKNBNTh/image-search-1787230401173.webp", link: "https://cds.streamfiles.eu.org/" },
-    { id: 9, name: "CW CTET", tag: "Teaching exam courses", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAB_URIwHn37n8wv-FR6lhXAS7clYsz2wD_VbdNlJlGVj6S3KVb1i0cXbi&s=10", link: "https://sangam.free.nf/CW/course_index.html" },  
-    { id: 66, name: "DISHA ONLINE CLASSES", tag: "Bihar board & comp", img: "https://i.postimg.cc/nL9SkYrp/image-search-1790939575363.png", link: "https://disha-studyapkmod.vercel.app/" },
-    { id: 6, name: "FUTUREKUL", tag: "Expert faculty classes", img: "https://i.postimg.cc/CK0zWrN0/image-search-1784218678678.png", link: "https://madxrohitbihar-app.github.io/futurekul-pro/" },  
-    { id: 16, name: "GS VISION", tag: "General studies modules", img: "https://i.postimg.cc/YSLHMFjS/image-search-1785250907310.png", link: "https://madxrohitbihar-app.github.io/GS-Vision/" },  
-    { id: 10, name: "IFAS ACADEMY", tag: "CSIR NET & GATE", img: "https://i.postimg.cc/XJdZmMRz/image-search-1784219774648.png", link: "https://sangam.free.nf/IFAS/" },  
-    { id: 68, name: "KD LIVE", tag: "Govt job test prep", img: "https://i.postimg.cc/brWTQYdG/image-search-1791011692951.jpg", link: "https://madxrohitbihar-app.github.io/Kd-Live/" },
-    { id: 2, name: "KHAN GLOBAL STUDIES", tag: "GS & competitive", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuCiwfy76ica73byqKIURXqN2Zi2h2Sdw0VJooGkXsyg&s", link: "https://studymate-v14-13-07-11-17.onrender.com/batches" },
-    { id: 60, name: "MAGNET BRAIN", tag: "Free school education", img: "https://i.postimg.cc/J4VMkfDz/image-search-1788171765952.png", link: "https://www.magnetbrains.com/" },  
-    { id: 72, name: "MISSION JEET", tag: "Targeted exam batches", img: "https://i.postimg.cc/V6j70XqJ/image-search-1792039762960.png", link: "https://madxrohitbihar-app.github.io/Mission-Jeet/" },
-    { id: 13, name: "NEXT TOPPERS", tag: "Focused fast batches", img: "https://i.postimg.cc/PqjZCyfr/image-search-1785225080041.jpg", link: "https://madxrohitbihar-app.github.io/Next-Toppers-pro/" },  
-    { id: 101, name: "PARMAR ACADEMY", tag: "SSC & Railway prep", img: "https://i.postimg.cc/sxYz6q2p/image-search-1792562519230.webp", link: "https://madxrohitbihar-app.github.io/Parmar-/" },
-    { id: 103, name: "PARMAR ACADEMY 2", tag: "SSC & Railway prep 2", img: "https://i.postimg.cc/sxYz6q2p/image-search-1792562519230.webp", link: "https://madxrohitbihar-app.github.io/Parmar-Academyweb/" },
-    { id: 100, name: "PHYSICS WALLAH", tag: "Premium batches & tests", img: "https://i.postimg.cc/ZRMVR91P/image-search-1791519463252.webp", link: "https://madxrohitbihar-app.github.io/Physics-pro/" },
-    { id: 102, name: "PHYSICS PI", tag: "Conceptual courses", img: "https://i.postimg.cc/ZRMVR91P/image-search-1791519463252.webp", link: "http://pi.studyparcham.site" },
-    { id: 20, name: "RG VIKRAMJEET", tag: "Maths & reasoning", img: "https://i.postimg.cc/cLqhCJVD/image-search-1791011678203.png", link: "https://madxrohitbihar-app.github.io/Rg-Vikramjeet/" },
-    { id: 4, name: "ROJGAR WITH ANKIT", tag: "Affordable exam prep", img: "https://i.postimg.cc/fTfdSHbT/image-search-1783668281136.png", link: "https://madxrohitbihar-app.github.io/RWA-Pro/" },  
-    { id: 3, name: "SELECTION WAY", tag: "Dedicated selection classes", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRquIqVyakcgsPuAsFkSm34nPLKZ_IY2W0-Rj5sd1-T-g&s=10", link: "https://old-meadow-c959.madxrohitbihar.workers.dev/" },  
-    { id: 59, name: "STUDY IQ", tag: "UPSC & Civil services", img: "https://i.postimg.cc/850xN6Wz/image-search-1788171724038.jpg", link: "https://spidyiq.vercel.app/" },  
-    { id: 8, name: "TEST SERIES", tag: "Mock tests & practice", img: "https://i.postimg.cc/Bb9C4KYz/image-search-1785225815998.png", link: "https://repeatermock.com/" },  
-    { id: 67, name: "THE OFFICERS ACADEMY", tag: "BPSC & state PCS", img: "https://i.postimg.cc/4y0hBtmy/image-search-1790939587430.webp", link: "https://studyapkmod-live.vercel.app/?view=courses" },  
-    { id: 65, name: "TOPPER'S WISDOM", tag: "Expert guidance courses", img: "https://i.postimg.cc/4x6z4BFq/image-search-1788787742041.jpg", link: "https://studyapkmod-toperwis.vercel.app/" },  
-    { id: 12, name: "UNACADEMY", tag: "Comprehensive learning", img: "https://i.postimg.cc/Wz6xPX4L/image-search-1785224943445.jpg", link: "https://madxrohitbihar-app.github.io/Unacdemy-pro/" },  
-    { id: 71, name: "UNACADEMY ONLINE", tag: "Live interactive classes", img: "https://i.postimg.cc/Wz6xPX4L/image-search-1785224943445.jpg", link: "https://madxrohitbihar-app.github.io/Unacdemy-pro-/" },
-    { id: 17, name: "VIBRANT ACADEMY", tag: "JEE advanced coaching", img: "https://i.postimg.cc/mgx3mfCs/image-search-1785251111107.png", link: "https://learnbyakp.site/vibrant" },  
-    { id: 61, name: "VIDYAKHUL", tag: "Online school boards", img: "https://i.postimg.cc/9Qr5MJ2g/image-search-1787482867101.png", link: "https://vidyakool.streamfiles.eu.org/" },
-    { id: 21, name: "VIDYAGRAM", tag: "School & board studies", img: "https://i.postimg.cc/SNG4r8cJ/image-search-1793448195795.png", link: "https://madxrohitbihar-app.github.io/Vidyagram-pro/" }
+    { id: 58, name: "1. APNA COLLEGE", tag: "Coding & tech", img: "https://i.postimg.cc/jS76CFc0/image-search-1783748117436.png", link: "https://madxrohitbihar-app.github.io/Apna-collgeg-pro/" },  
+    { id: 1, name: "2. CAREER WILL", tag: "Competitive exams", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmYE_faasYwfAs0rQKDf4GcuoV7_Ws6ZUqWwmIpuHVSw&s", link: "https://madxrohitbihar-app.github.io/Careerwill-2pro/" },  
+    { id: 70, name: "3. CAREERWILL 2", tag: "Advanced live batches", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmYE_faasYwfAs0rQKDf4GcuoV7_Ws6ZUqWwmIpuHVSw&s", link: "https://madxrohitbihar-app.github.io/Careerwill/" },
+    { id: 19, name: "4. CDS JOURNEY", tag: "Defence exam study", img: "https://i.postimg.cc/tRKNBNTh/image-search-1787230401173.webp", link: "https://cds.streamfiles.eu.org/" },
+    { id: 9, name: "5. CW CTET", tag: "Teaching exam courses", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmYE_faasYwfAs0rQKDf4GcuoV7_Ws6ZUqWwmIpuHVSw&s", link: "https://sangam.free.nf/CW/course_index.html" },  
+    { id: 66, name: "6. DISHA ONLINE CLASSES", tag: "Bihar board & comp", img: "https://i.postimg.cc/nL9SkYrp/image-search-1790939575363.png", link: "https://disha-studyapkmod.vercel.app/" },
+    { id: 6, name: "7. FUTUREKUL", tag: "Expert faculty classes", img: "https://i.postimg.cc/CK0zWrN0/image-search-1784218678678.png", link: "https://madxrohitbihar-app.github.io/futurekul-pro/" },  
+    { id: 16, name: "8. GS VISION", tag: "General studies modules", img: "https://i.postimg.cc/YSLHMFjS/image-search-1785250907310.png", link: "https://madxrohitbihar-app.github.io/GS-Vision/" },  
+    { id: 103, name: "9. GUIDELY", tag: "Banking & insurance", img: "https://i.postimg.cc/z3Z1X3zG/image-search-1793353021694.png", link: "https://madxrohitbihar-app.github.io/Guidely-pro/" },
+    { id: 10, name: "10. IFAS ACADEMY", tag: "CSIR NET & GATE", img: "https://i.postimg.cc/XJdZmMRz/image-search-1784219774648.png", link: "https://sangam.free.nf/IFAS/" },  
+    { id: 68, name: "11. KD LIVE", tag: "Govt job test prep", img: "https://i.postimg.cc/brWTQYdG/image-search-1791011692951.jpg", link: "https://madxrohitbihar-app.github.io/Kd-Live/" },
+    { id: 60, name: "12. MAGNET BRAIN", tag: "Free school education", img: "https://i.postimg.cc/J4VMkfDz/image-search-1788171765952.png", link: "https://www.magnetbrains.com/" },  
+    { id: 104, name: "13. MD CLASSES", tag: "Railway & competitive", img: "https://i.postimg.cc/bwSzPcpM/image-search-1793367242436.png", link: "https://madxrohitbihar-app.github.io/MD-CLASSES-PRO/" },
+    { id: 72, name: "14. MISSION JEET", tag: "Targeted exam batches", img: "https://i.postimg.cc/V6j70XqJ/image-search-1792039762960.png", link: "https://madxrohitbihar-app.github.io/Mission-Jeet/" },
+    { id: 13, name: "15. NEXT TOPPERS", tag: "Focused fast batches", img: "https://i.postimg.cc/PqjZCyfr/image-search-1785225080041.jpg", link: "https://madxrohitbihar-app.github.io/Next-Toppers-pro/" },  
+    { id: 101, name: "16. PARMAR Single", tag: "SSC & Railway prep", img: "https://i.postimg.cc/sxYz6q2p/image-search-1792562519230.webp", link: "https://madxrohitbihar-app.github.io/Parmar-/" },
+    { id: 105, name: "17. PARMAR Academy", tag: "SSC & Railway prep 2", img: "https://i.postimg.cc/65gXYjC5/image-search-1793367333359.jpg", link: "https://madxrohitbihar-app.github.io/Parmar-Academyweb/" },
+    { id: 100, name: "18. PHYSICS WALLAH", tag: "Premium batches & tests", img: "https://i.postimg.cc/ZRMVR91P/image-search-1791519463252.webp", link: "https://madxrohitbihar-app.github.io/Physics-pro/" },
+    { id: 102, name: "19. PHYSICS PI", tag: "Conceptual courses", img: "https://i.postimg.cc/ZRMVR91P/image-search-1791519463252.webp", link: "http://pi.studyparcham.site" },
+    { id: 20, name: "20. RG VIKRAMJEET", tag: "Maths & reasoning", img: "https://i.postimg.cc/cLqhCJVD/image-search-1791011678203.png", link: "https://madxrohitbihar-app.github.io/Rg-Vikramjeet/" },
+    { id: 4, name: "21. ROJGAR WITH ANKIT", tag: "Affordable exam prep", img: "https://i.postimg.cc/fTfdSHbT/image-search-1783668281136.png", link: "https://madxrohitbihar-app.github.io/RWA-Pro/" },  
+    { id: 3, name: "22. SELECTION WAY", tag: "Dedicated selection classes", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRquIqVyakcgsPuAsFkSm34nPLKZ_IY2W0-Rj5sd1-T-g&s=10", link: "https://sw.nextmate.site/" },  
+    { id: 59, name: "23. STUDY IQ", tag: "UPSC & Civil services", img: "https://i.postimg.cc/850xN6Wz/image-search-1788171724038.jpg", link: "https://spidyiq.vercel.app/" },  
+    { id: 107, name: "24. TARGET BOARD", tag: "School boards study", img: "https://i.postimg.cc/9Q1DF0xN/image-search-1793637160360.png", link: "https://targetboard.free.nf/" },
+    { id: 8, name: "25. TEST SERIES", tag: "Mock tests & practice", img: "https://i.postimg.cc/Bb9C4KYz/image-search-1785225815998.png", link: "https://repeatermock.com/" },  
+    { id: 67, name: "26. THE OFFICERS ACADEMY", tag: "BPSC & state PCS", img: "https://i.postimg.cc/4y0hBtmy/image-search-1790939587430.webp", link: "https://studyapkmod-live.vercel.app/?view=courses" },  
+    { id: 65, name: "27. TOPPER'S WISDOM", tag: "Expert guidance courses", img: "https://i.postimg.cc/4x6z4BFq/image-search-1788787742041.jpg", link: "https://studyapkmod-toperwis.vercel.app/" },  
+    { id: 12, name: "28. UNACADEMY", tag: "Comprehensive learning", img: "https://i.postimg.cc/Wz6xPX4L/image-search-1785224943445.jpg", link: "https://madxrohitbihar-app.github.io/Unacdemy-pro/" },  
+    { id: 71, name: "29. UNACADEMY ONLINE", tag: "Live interactive classes", img: "https://i.postimg.cc/Wz6xPX4L/image-search-1785224943445.jpg", link: "https://madxrohitbihar-app.github.io/Unacdemy-pro-/" },
+    { id: 17, name: "30. VIBRANT ACADEMY", tag: "JEE advanced coaching", img: "https://i.postimg.cc/mgx3mfCs/image-search-1785251111107.png", link: "https://learnbyakp.site/vibrant" },  
+    { id: 61, name: "31. VIDYAKHUL", tag: "Online school boards", img: "https://i.postimg.cc/9Qr5MJ2g/image-search-1787482867101.png", link: "https://vidyakool.streamfiles.eu.org/" }
 ];  
 
 let favorites = JSON.parse(localStorage.getItem('userFavs')) || [];  
@@ -142,8 +143,8 @@ function renderApps() {
 function getAppCategory(name) {
     const n = name.toUpperCase();
     if (n.includes('PHYSICS') || n.includes('APNA') || n.includes('VIBRANT') || n.includes('IFAS')) return 'jee';
-    if (n.includes('CAREER') || n.includes('KD') || n.includes('PARMAR') || n.includes('RG') || n.includes('STUDY IQ') || n.includes('OFFICERS') || n.includes('KHAN')) return 'govt';
-    if (n.includes('DISHA') || n.includes('MAGNET') || n.includes('VIDYAKHUL') || n.includes('VIDYAGRAM')) return 'board';
+    if (n.includes('CAREER') || n.includes('KD') || n.includes('PARMAR') || n.includes('RG') || n.includes('STUDY IQ') || n.includes('OFFICERS') || n.includes('KHAN') || n.includes('GUIDELY') || n.includes('MD CLASSES')) return 'govt';
+    if (n.includes('DISHA') || n.includes('MAGNET') || n.includes('VIDYAKHUL') || n.includes('TARGET BOARD')) return 'board';
     return 'govt';
 }
 
