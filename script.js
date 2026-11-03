@@ -85,7 +85,7 @@ const activeApps = [
     { id: 68, name: "11. KD LIVE", tag: "Govt job test prep", img: "https://i.postimg.cc/brWTQYdG/image-search-1791011692951.jpg", link: "https://madxrohitbihar-app.github.io/Kd-Live/" },
     { id: 2, name: "12. KHAN GLOBAL STUDIES", tag: "GS & competitive", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuCiwfy76ica73byqKIURXqN2Zi2h2Sdw0VJooGkXsyg&s", link: "https://studymate-v14-13-07-11-17.onrender.com/batches" },
     { id: 60, name: "13. MAGNET BRAIN", tag: "Free school education", img: "https://i.postimg.cc/J4VMkfDz/image-search-1788171765952.png", link: "https://www.magnetbrains.com/" },  
-    { id: 104, name: "14. MD CLASSES", tag: "Railway & competitive", img: "https://i.postimg.cc/bwSzPcpM/image-search-1793367242436.png", link: "https://madxrohitbihar-app.github.io/MD-CLASSES-PRO/" },
+    { id: 104, name: "14. MD CLASSES", tag: "Railway & competitive", img: "https://i.postimg.cc/bwSzPcpM/image-search-1793367242436.png", link: "https://md.learnvortex.cc.cd/" },
     { id: 72, name: "15. MISSION JEET", tag: "Targeted exam batches", img: "https://i.postimg.cc/V6j70XqJ/image-search-1792039762960.png", link: "https://madxrohitbihar-app.github.io/Mission-Jeet/" },
     { id: 13, name: "16. NEXT TOPPERS", tag: "Focused fast batches", img: "https://i.postimg.cc/PqjZCyfr/image-search-1785225080041.jpg", link: "https://madxrohitbihar-app.github.io/Next-Toppers-pro/" },  
     { id: 101, name: "17. PARMAR Single", tag: "SSC & Railway prep", img: "https://i.postimg.cc/sxYz6q2p/image-search-1792562519230.webp", link: "https://madxrohitbihar-app.github.io/Parmar-/" },
