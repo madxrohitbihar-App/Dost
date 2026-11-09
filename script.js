@@ -1,76 +1,3 @@
-// AroLinks Integration for Get Key
-function openAroLinks() {
-    const apiToken = "828c34db80ec53e94e7174f5f52e0b274a38ab2d";
-    const targetUrl = "https://madxrohitbihari.github.io/MADX-KEY/";
-    const apiUrl = `https://arolinks.com/api?api=${apiToken}&url=${encodeURIComponent(targetUrl)}`;
-
-    const msgDiv = document.getElementById("status-msg");
-    msgDiv.style.color = "var(--accent-gold)";
-    msgDiv.innerText = "Generating Link...";
-    showToast("Generating Access Link...");
-    
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === "success" && data.shortenedUrl) {
-                window.location.href = data.shortenedUrl;
-            } else {
-                msgDiv.style.color = "#ff4444";
-                msgDiv.innerText = "Error generating link!";
-                showToast("Error generating link!");
-            }
-        })
-        .catch(() => {
-            msgDiv.style.color = "#ff4444";
-            msgDiv.innerText = "Network Error!";
-            showToast("Network Error!");
-        });
-}
-
-// Open YouTube Shorts directly to avoid embedding/configuration errors
-function openVideoModal() {
-    window.open("https://youtube.com/shorts/pUzO0qK8Pf8?si=DXpOKDWrX9HFbpyp", "_blank");
-}
-
-// High Security Key Verification Logic (33 Characters + MAD prefix & APN suffix)
-function verifyUserKey() {
-    const userKey = document.getElementById("accessKeyInput").value.trim().toUpperCase();
-    const msgDiv = document.getElementById("status-msg");
-    
-    const targetLen = 33; 
-    if (userKey.length !== targetLen || !userKey.startsWith("MAD") || !userKey.endsWith("APN")) {
-        msgDiv.style.color = "#ff4444";
-        msgDiv.innerText = "⚠ Invalid key format!";
-        showToast("⚠️ Invalid key format!");
-        return;
-    }
-
-    let usedKeys = JSON.parse(localStorage.getItem("usedKeysRegistry")) || {};
-    const currentTime = new Date().getTime();
-
-    if (usedKeys[userKey]) {
-        msgDiv.style.color = "#ff4444";
-        msgDiv.innerText = "⚠️ This key has already been used! Please get a new key.";
-        showToast("⚠️ Key already used! Get a new key");
-        return;
-    }
-
-    usedKeys[userKey] = currentTime;
-    localStorage.setItem("usedKeysRegistry", JSON.stringify(usedKeys));
-
-    const keyExpiryDuration = 24 * 60 * 60 * 1000;
-    const globalExpiryTime = currentTime + keyExpiryDuration; 
-    localStorage.setItem("appAuthExpiry", globalExpiryTime);
-    
-    msgDiv.style.color = "var(--neon-green)";
-    msgDiv.innerText = "Portal Unlocked Successfully!";
-    showToast("Portal Unlocked Successfully!");
-
-    setTimeout(() => {
-        document.getElementById("authScreenWrapper").style.display = "none";
-    }, 600);
-}
-
 const activeApps = [  
     { id: 58, name: "1. APNA COLLEGE", tag: "Coding & tech", img: "https://i.postimg.cc/jS76CFc0/image-search-1783748117436.png", link: "https://madxrohitbihar-app.github.io/Apna-collgeg-pro/" },  
     { id: 1, name: "2. CAREER WILL", tag: "Competitive exams", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmYE_faasYwfAs0rQKDf4GcuoV7_Ws6ZUqWwmIpuHVSw&s", link: "https://madxrohitbihar-app.github.io/Careerwill-2pro/" },  
@@ -222,22 +149,6 @@ document.addEventListener("contextmenu", (e) => {
     return false;
 });
 
-function checkAuthStatus() {
-    const expiryTime = localStorage.getItem("appAuthExpiry");
-    const currentTime = new Date().getTime();
-    const isVerified = expiryTime && currentTime < expiryTime;
-
-    if (isVerified) {
-        document.getElementById('authScreenWrapper').style.display = 'none';
-    } else {
-        document.getElementById('authScreenWrapper').style.display = 'flex';
-    }
-}
-
-window.addEventListener('pageshow', function(event) {
-    checkAuthStatus();
-});
-
 document.addEventListener("DOMContentLoaded", () => {  
     const splash = document.getElementById("splash-screen");  
       
@@ -256,8 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 500);
     }
 
-    checkAuthStatus();
-
     const savedTab = sessionStorage.getItem('currentActiveTab');
     if (savedTab) {
         const targetNav = document.getElementById(`nav-${savedTab}`);
@@ -267,11 +176,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });  
 
-function closePopupAndShowAuth() {  
+function closePopup() {  
     document.getElementById('popupModal').style.display = 'none';  
     sessionStorage.setItem('popupShown', 'true'); 
-
-    checkAuthStatus();
 }  
 
 renderApps();
